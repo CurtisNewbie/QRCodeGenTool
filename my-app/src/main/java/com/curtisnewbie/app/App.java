@@ -29,6 +29,7 @@ public class App {
 
         var map = parseArgs(args);
         if (map.size() != ARG_LEN) {
+            printArgError();
             printArgsList();
             System.exit(1);
         }
@@ -140,10 +141,20 @@ public class App {
         return argMap;
     }
 
+    /**
+     * Print a list of arguments for this program
+     */
     public static void printArgsList() {
         System.err.println(String.format(
-                "\n\u001B[1m\u001B[31m  Error - incorrect number of arguments.\u001B[39m\n  Arguments List:\n\t%s message to be encoded\n\t%s width of the QRcode (Integer)\n\t%s height of the QRcode (Integer)\n\t%s absolute/relative path of the output QRcode image\u001B[0m\n",
+                "\n  Arguments List:\n\t%s message to be encoded\n\t%s width of the QRcode (Integer)\n\t%s height of the QRcode (Integer)\n\t%s absolute/relative path of the output QRcode image\u001B[0m\n",
                 MSG_ARG, WIDTH_ARG, HEIGHT_ARG, OUTPUT_ARG));
+    }
+
+    /**
+     * Print error due to the incorrect number of arguments
+     */
+    public static void printArgError() {
+        System.err.println("\n\u001B[1m\u001B[31m  Error - incorrect number of arguments.\u001B[39m");
     }
 
     enum Param {
