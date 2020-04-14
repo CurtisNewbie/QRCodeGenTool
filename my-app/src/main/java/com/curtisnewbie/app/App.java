@@ -1,5 +1,6 @@
 package com.curtisnewbie.app;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
@@ -50,12 +51,8 @@ public class App {
 
             // open the created images
             String os = System.getProperty("os.name").toLowerCase();
-            if (os.contains("window")) {
-                System.out.println("Attempting to open the file");
-                openFile(outputPath);
-                System.out.println("The file is located at: " + "\"" + outputPath + "\"");
-            }
-
+            openFile(outputPath, os);
+            System.out.println("The file is located at: " + "\"" + outputPath + "\"");
         } catch (WriterException e) {
             System.err.println("Failed to generate QR image, existing...");
             System.err.println("\n" + e.toString());
@@ -96,10 +93,14 @@ public class App {
      * 
      * @param p file path as a string.
      */
-    public static void openFile(String p) throws IOException {
-
+    public static void openFile(String p, String os) throws IOException {
+        System.out.println("Attempting to open the file");
         Runtime runtime = Runtime.getRuntime();
-        runtime.exec("cmd.exe /c \"" + p + "\"");
+        if (os.contains("window")) {
+            runtime.exec(new String[] { "cmd.exe", "/c", "'" + p + "'" });
+        } else if (os.contains("linux")) {
+            runtime.exec(new String[] { "bash", "-c", "xdg-open '" + p + "'" });
+        }
     }
 
     /**
