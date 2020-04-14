@@ -2,7 +2,7 @@
 
 QRCodeGenTool powered by **zxing**
 
-A simple program that encodes the given text into a QR Code image and output that image to a speicified file path.
+A simple program that encodes the given text into a QR Code image.
 
 ## Prerequisite
 
@@ -20,8 +20,8 @@ This program takes four arguments:
 
 To use it, you will need to download the Jar file in **RELEASE** and run it as follows:
 
-    java -jar QRCodeGenTool-1.0-SNAPSHOT.jar -m "[your_msg]" -w [300] -h [300] -o [path/to/the/QRimg.png]
+    java -jar QRCodeGenTool-1.1-SNAPSHOT.jar -m "[your_msg]" -w [integer] -h [integer] -o [path/to/the/QRimg.png]
 
 For example
 
-    java -jar QRCodeGenTool-1.0-SNAPSHOT.jar -m "I am the best!" -w 300 -h 300 -o best.png
+    java -jar QRCodeGenTool-1.1-SNAPSHOT.jar -m "I am the best!" -w 300 -h 300 -o best.png
