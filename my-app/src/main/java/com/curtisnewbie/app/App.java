@@ -22,7 +22,6 @@ public class App {
     public static final int ARG_LEN = 4;
 
     public static void main(String[] args) {
-
         var map = parseArgs(args);
         if (map.size() != ARG_LEN) {
             printArgError();
@@ -109,28 +108,14 @@ public class App {
     public static Map<Param, String> parseArgs(String args[]) {
         Map<Param, String> argMap = new EnumMap<>(Param.class);
         for (int i = 0; i < args.length; i++) {
-            if (args[i].equals(MSG_ARG)) { // msg
-                if (!argMap.containsKey(Param.MSG)) {
-                    List<String> tempList = new ArrayList<>();
-                    while (i < args.length - 1) {
-                        var txt = args[++i];
-                        if (!txt.startsWith("-"))
-                            tempList.add(txt);
-                        else {
-                            --i;
-                            break;
-                        }
-                    }
-                    argMap.put(Param.MSG, String.join(" ", tempList));
-                }
-            } else if (args[i].equals(WIDTH_ARG)) { // width
-                if (!argMap.containsKey(Param.WIDTH) && i < args.length - 1)
+            if (i < args.length - 1) {
+                if (args[i].equals(MSG_ARG) && !argMap.containsKey(Param.MSG)) // msg
+                    argMap.put(Param.MSG, args[++i]);
+                else if (args[i].equals(WIDTH_ARG) && !argMap.containsKey(Param.WIDTH)) // width
                     argMap.put(Param.WIDTH, args[++i]);
-            } else if (args[i].equals(HEIGHT_ARG)) { // height
-                if (!argMap.containsKey(Param.HEIGHT) && i < args.length - 1)
+                else if (args[i].equals(HEIGHT_ARG) && !argMap.containsKey(Param.HEIGHT)) // height
                     argMap.put(Param.HEIGHT, args[++i]);
-            } else if (args[i].equals(OUTPUT_ARG)) { // output path
-                if (!argMap.containsKey(Param.OUTPUT_PATH) && i < args.length - 1)
+                else if (args[i].equals(OUTPUT_ARG) && !argMap.containsKey(Param.OUTPUT_PATH)) // output path
                     argMap.put(Param.OUTPUT_PATH, args[++i]);
             }
         }
@@ -150,7 +135,7 @@ public class App {
      * Print error due to the incorrect number of arguments
      */
     public static void printArgError() {
-        System.err.println("\n\u001B[1m\u001B[31m  Error - incorrect number of arguments.\u001B[39m");
+        System.err.println("\n\u001B[1m\u001B[31m  Error! Failed to parse the arguments.\u001B[39m");
     }
 
     enum Param {
