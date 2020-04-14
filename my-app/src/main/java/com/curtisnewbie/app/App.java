@@ -127,7 +127,7 @@ public class App {
      */
     public static void printArgsList() {
         System.err.println(String.format(
-                "\n  Arguments List:\n\t%s message to be encoded\n\t%s width of the QRcode (Integer)\n\t%s height of the QRcode (Integer)\n\t%s absolute/relative path of the output QRcode image\u001B[0m\n",
+                "\n  Arguments List:\n\t%s message to be encoded\n\t%s width of the QRcode (Integer)\n\t%s height of the QRcode (Integer)\n\t%s absolute/relative path of the output QRcode image\n\n  E.g.,\n   -m 'I am the best!' -w 300 -h 300 -o best.png\u001B[0m",
                 MSG_ARG, WIDTH_ARG, HEIGHT_ARG, OUTPUT_ARG));
     }
 
