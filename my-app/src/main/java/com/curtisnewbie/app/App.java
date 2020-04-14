@@ -1,6 +1,5 @@
 package com.curtisnewbie.app;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
@@ -12,7 +11,6 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 
 /**
  * Program for generatign QR code based on the given text.
- *
  */
 public class App {
 
@@ -22,8 +20,6 @@ public class App {
     public static final String HEIGHT_ARG = "-h";
     public static final String OUTPUT_ARG = "-o";
     public static final int ARG_LEN = 4;
-
-    public static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -67,6 +63,7 @@ public class App {
     }
 
     /**
+     * Generate QRcode Image
      * 
      * @param t text
      * @param w width
@@ -84,13 +81,12 @@ public class App {
         // access to the FileSystem and get the path
         Path path = FileSystems.getDefault().getPath(p);
 
-        // writer th image using image writer
+        // write image using image writer
         MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
     }
 
     /**
-     * Open the created file. This function only supports windows os, beacuse I use
-     * Windows (unfortunately).
+     * Open the created QRcode image.
      * 
      * @param p file path as a string.
      */
