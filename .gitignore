@@ -2,8 +2,10 @@
 *.class
 target/
 
-#jdk 
+# IDE
 .vscode/
+*.iml
+.idea/
 
 # Log file
 *.log
