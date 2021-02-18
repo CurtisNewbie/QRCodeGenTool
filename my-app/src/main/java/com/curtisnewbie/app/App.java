@@ -23,7 +23,6 @@ public class App {
     public static final String WIFI_ARG = "-wifi";
     public static final String WIFI_PWD_ARG = "-p";
     public static final String WIFI_NAME_ARG = "-n";
-    public static final int ARG_LEN = 4;
     private static final int DEF_WIDTH = 300;
     private static final int DEF_HEIGHT = 300;
 
