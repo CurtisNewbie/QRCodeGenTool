@@ -154,7 +154,8 @@ public class App {
                         "\t%s encode WIFI name and password\n" +
                         "\t%s (if WIFI encoding is enabled) WIFI's name\n" +
                         "\t%s (if WIFI encoding is enabled) WIFI's password\n" +
-                        "\n  E.g.,\n   -m 'I am the best!' -w 300 -h 300 -o best.png\u001B[0m",
+                        "\n  E.g.,\n   -m 'I am the best!' -w 300 -h 300 -o best.png\n" +
+                        "\n  E.g.,\n   -wifi -n 'mywifi' -p 'mypassword' -w 300 -h 300 -o wifi.png\u001B[0m",
                 MSG_ARG, WIDTH_ARG, HEIGHT_ARG, OUTPUT_ARG, WIFI_ARG, WIFI_NAME_ARG, WIFI_PWD_ARG));
     }
 
