@@ -10,7 +10,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>${maven.comiler.target}</maven.compiler.source>
+    <maven.compiler.source>${maven.compiler.target}</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <exec.mainClass>com.curtisnewbie.app.App</exec.mainClass>
     <!-- mvn clean compile exec:java-->
